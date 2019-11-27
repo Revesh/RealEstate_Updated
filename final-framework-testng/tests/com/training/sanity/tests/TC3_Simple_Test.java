@@ -1,12 +1,15 @@
 package com.training.sanity.tests;
 
 import java.awt.AWTException;
-import java.awt.List;
+//import java.awt.List;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -30,7 +33,7 @@ import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 
-public class TC3 {
+public class TC3Test {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -63,7 +66,7 @@ public class TC3 {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
-	Assert.assertEquals("http://realestatem1.upskills.in/", baseUrl);
+	//Assert.assertEquals("http://realestatem1.upskills.in/", baseUrl);
 
 		
 	}
@@ -81,23 +84,62 @@ public class TC3 {
 			
 			Robot robot = new Robot();
 		dashBoardPOM.newLaunch.click();
-	System.out.println( "whether map displayed or not " + fh.map.isDisplayed()); 
-	GM.assertText("Find Your Home" , "//h4[contains(text() , 'Find Your Home')]", "xpath", "Assert passed");
+System.out.println( "whether map displayed or not " + fh.map.isDisplayed()); 
+	GM.assertText("Find Your Home" , "//h4[contains(text() , 'Find Your Home')]", "xpath", "Assert NOT passed for find your home");
 	
 	
 	GM.sendValue(fh.address, "Electronic city");
 	Actions action = new Actions(driver);
 	action.keyDown(Keys.CONTROL).click().perform();
-	
-	 java.util.List<WebElement> allOptions =   driver.findElements(By.xpath("//li[@class='active-result']")); 
-	
-	 for(WebElement s : allOptions) {
-		 String str = s.getText();
-		 System.out.println(str);
-	 }
-	 
-	 
 	fh.propertyType.click();
+	 WebElement allOptions =   driver.findElement(By.xpath("//*[@id=\"_property_type_chosen\"]/div/ul")); 
+	 
+
+     List<WebElement> options = allOptions.findElements(By.xpath("//*[@id=\"_property_type_chosen\"]/div/ul/li"));
+     System.out.println(options.size());
+     for (int i =0 ; i < options.size(); i++)
+     {
+    	 String str = options.get(i).getText();
+    	 System.out.println(str);
+    	 
+    	 if (str.equals("Plots")) {
+    		 
+    		 
+    		 options.get(i).click();
+    		 
+    		 
+    	 }}
+        
+         
+    	 
+    	 
+    	 
+    	 driver.findElement(By.cssSelector("div > .chosen-default.chosen-single")).click();;
+    	 WebElement allRegions =   driver.findElement(By.xpath("//*[@id=\"realteo-search-form\"]/div[2]/div[2]/div/div")); 
+    	 
+
+         List<WebElement> l1 = allRegions.findElements(By.tagName("li"));
+         System.out.println(l1.size());
+         for (int j =0 ; j < l1.size(); j++)
+         {
+        	 String str1 = l1.get(j).getText();
+        	 System.out.println(str1);
+        	 
+        	 if (str1.contains("Central")) {
+        		 
+        		 
+        		 l1.get(j).click();
+        		 
+        		 
+        	 }
+    	 
+    	 
+    	 
+     } 
+
+	 
+	// below used Robot class for drop down control 
+	/*fh.propertyType.click();
 	robot.keyPress(KeyEvent.VK_DOWN);
 	robot.keyRelease(KeyEvent.VK_DOWN);
 	robot.keyPress(KeyEvent.VK_DOWN);
@@ -125,30 +167,53 @@ public class TC3 {
 	robot.keyRelease(KeyEvent.VK_DOWN);
 	
 	robot.keyPress(KeyEvent.VK_ENTER);
-	robot.keyRelease(KeyEvent.VK_ENTER);
+	robot.keyRelease(KeyEvent.VK_ENTER); */
 	
-	driver.findElement(By.xpath("//button[contains ( text(), 'Search')]")).click();
-	Thread.sleep(3000);
+        String parentWinHandle = driver.getWindowHandle();
+         System.out.println("Parent window handle: " + parentWinHandle);
+		WebElement search = driver.findElement(By.xpath("//button[contains ( text(), 'Search')]"));
+	System.out.println(search.isDisplayed());
+	search.click();
+
+
 	
-	GM.assertText("new-launch projects in Bangalore " , "/html//div[@id='titlebar']/div[@class='container']//p[.='new-launch projects in Bangalore ']", "xpath", "Assert passed");
+    // Locate 'Click to open a new browser window!' button using id
+   
+    Set<String> winHandles = driver.getWindowHandles();
+    // Loop through all handles
+    for(String handle: winHandles){
+        if(!handle.equals(parentWinHandle)){
+        driver.switchTo().window(handle);
+        
+        Thread.sleep(5000); 
+        
+        
+    	
+    	GM.assertText("Region: New Launch" , "//*[@id=\"titlebar\"]/div/div/div/h1", "xpath", "Assert NOT passed for search");
+    	
+        
+        }
+
+	
+	//driver.findElement(By.xpath("//button[contains ( text(), 'Search')]")).click();
 	
 	
-	
+	//*[@id="titlebar"]/div/div/div/h1
 			
+	//h1[contains (text(), 'Region: New Launch')]
 			
-			
-		}
+		} 
+}}
 	
-	
-	@AfterMethod
+	/*@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
-	} 
+	} */
 	
 	
 	
 	
 	
 	
-}
+

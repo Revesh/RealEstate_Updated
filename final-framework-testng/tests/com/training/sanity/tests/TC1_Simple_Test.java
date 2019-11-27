@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +21,7 @@ import com.training.pom.doneQuis;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class TC2 {
+public class TC1Test {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -51,8 +52,10 @@ public class TC2 {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
+		Assert.assertEquals("http://realestatem1.upskills.in/", baseUrl);
 	}
 		@Test
+		/*first TC*/
 		public void A_validLoginTest() throws InterruptedException {
 		/*	loginPOM.clickLoginLink();
 			loginPOM.sendUserName("admin");
@@ -65,21 +68,18 @@ public class TC2 {
 			GM.mouseHover(dashBoardPOM.newLaunch,dashBoardPOM.doneQuis,GM.driver) ;
 			
 			
-		GM.assertText("Mortgage Calculator" , "//h3[contains ( text() , 'Mortgage Calculator')]", "xpath", "Assert passed");
-		
-		
-		
+		GM.assertText("FOR ENQUIRIES" , "//h3[contains (text() , 'FOR ENQUIRIES')]", "xpath", "Assert NOT passed for enquiries");
 					
-		quisPOM.sendSalesPrice("400000");
-		quisPOM.sendDownPayment("20000");
-		quisPOM.sendLoanYears("20");
-		quisPOM.sendInterest("7.25");
-        quisPOM.clickCalulateSubmit();
-    String str=    quisPOM.value.getText();
- System.out.println(str.contains("3003.43 Rs"));
-     
-			
-			
+		quisPOM.sendEnquiryName("Revathy");
+		quisPOM.sendEnquiryMail("revahty.dps@gmail.com");
+		quisPOM.sendEnquirySubject("Land rate enquiry");
+		quisPOM.sendEnquiryMessage("could you please share the square ft rate in north bangalore");
+        quisPOM.clickEnquirySubmit();
+        
+        // this assert fails as the curretly displayed message in the page is not the one expected
+        GM.assertText("Thank you for your message. It has been sent. Message should get displayed" , "//div[@id='widget_contact_widget_findeo-2']//div[@role='form']/form[@action='/donec-quis/#wpcf7-f4-o1']/div[@role='alert']", "xpath", "Assert NOT  passed for final message");
+        
+       
 		}
 	
 	

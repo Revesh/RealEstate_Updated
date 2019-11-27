@@ -99,9 +99,9 @@ public class GenericMethods {
 		Assert.assertTrue(actualText.equals(expectedText),msg );
 		}else if(type.equals("xpath")){
 			String actualText = driver.findElement(By.xpath(locator)).getText();
-			System.out.println(actualText);
+			//System.out.println(actualText);
 			 Assert.assertTrue(actualText.equals(expectedText),msg );
-			System.out.println(msg);
+			//System.out.println(msg);
 		}else if(type.equals("css")){
 			String actualText = driver.findElement(By.cssSelector(locator)).getText();
 			Assert.assertTrue(actualText.equals(expectedText),msg );

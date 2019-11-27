@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="42298" started-at="2019-11-27T03:17:38Z" finished-at="2019-11-27T03:18:20Z">
+  <suite name="Default suite" duration-ms="70391" started-at="2019-12-02T03:14:02Z" finished-at="2019-12-02T03:15:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="42298" started-at="2019-11-27T03:17:38Z" finished-at="2019-11-27T03:18:20Z">
-      <class name="com.training.sanity.tests.TC3">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.TC3@1bce4f0a]" name="setUpBeforeClass" is-config="true" duration-ms="63" started-at="2019-11-27T03:17:38Z" finished-at="2019-11-27T03:17:38Z">
+    <test name="Default test" duration-ms="70391" started-at="2019-12-02T03:14:02Z" finished-at="2019-12-02T03:15:12Z">
+      <class name="com.training.sanity.tests.tc2_">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.tc2_@1bce4f0a]" name="setUpBeforeClass" is-config="true" duration-ms="21" started-at="2019-12-02T03:14:02Z" finished-at="2019-12-02T03:14:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.TC3@1bce4f0a]" name="setUp" is-config="true" duration-ms="42138" started-at="2019-11-27T03:17:38Z" finished-at="2019-11-27T03:18:20Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.tc2_@1bce4f0a]" name="setUp" is-config="true" duration-ms="32252" started-at="2019-12-02T03:14:02Z" finished-at="2019-12-02T03:14:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="A_validLoginTest()[pri:0, instance:com.training.sanity.tests.TC3@1bce4f0a]" name="A_validLoginTest" duration-ms="25" started-at="2019-11-27T03:18:20Z" finished-at="2019-11-27T03:18:20Z">
+        <test-method status="PASS" signature="A_validLoginTest()[pri:0, instance:com.training.sanity.tests.tc2_@1bce4f0a]" name="A_validLoginTest" duration-ms="38085" started-at="2019-12-02T03:14:34Z" finished-at="2019-12-02T03:15:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- A_validLoginTest -->
-      </class> <!-- com.training.sanity.tests.TC3 -->
+      </class> <!-- com.training.sanity.tests.tc2_ -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
