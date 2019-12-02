@@ -28,6 +28,8 @@ import com.training.utility.DriverNames;
 
 public class TC1_Medium_test {
 
+	//Test case Medium one
+	
 	private WebDriver driver;
 	private String baseUrl;
 	private RealLoginPOM loginPOM;

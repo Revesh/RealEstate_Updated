@@ -35,6 +35,7 @@ import com.training.utility.DriverNames;
 
 public class TC2_Medium_test {
 
+	//TC Medium two
 	private WebDriver driver;
 	private String baseUrl;
 	private RealLoginPOM loginPOM;
