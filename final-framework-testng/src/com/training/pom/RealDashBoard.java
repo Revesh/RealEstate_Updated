@@ -13,8 +13,7 @@ public class RealDashBoard {
 		PageFactory.initElements(driver, this);
 	}
 	
-	//Realestate dashboard
-	
+
 	@FindBy(xpath="//li[@id='wp-admin-bar-site-name']/a[@href='http://realestatem1.upskills.in/']")
 	public WebElement home; 
 	

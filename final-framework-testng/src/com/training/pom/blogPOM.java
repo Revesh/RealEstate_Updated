@@ -39,7 +39,7 @@ public class blogPOM {
 		
 		
 		
-		/*blog*/
+		
 	}
 	public void clickBlog() {
 		this.blog.click(); }

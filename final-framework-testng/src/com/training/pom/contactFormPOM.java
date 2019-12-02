@@ -13,7 +13,7 @@ public class contactFormPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	//contact
+	
 	
 //	@FindBy(xpath="")
 //	private WebElement blog; 
